@@ -1,3 +1,5 @@
+/*
+
 function add (a, b) {
     return a + b
 }
@@ -38,3 +40,5 @@ function operate (numOne, operator, numTwo) {
 }
 
 console.log(operate(8, "/", 2))
+
+*/
