@@ -1,6 +1,8 @@
 const outputDisplay = document.querySelector('.output')
 const buttons = document.querySelectorAll('button')
 
+const clear = document.querySelector('#clear')
+
 function add (a, b) {
     return a + b
 }
@@ -38,6 +40,11 @@ function operate (numOne, operator, numTwo) {
     }
 }
 
+// Clear Button function
+clear.addEventListener('click', () => {
+    outputDisplay.textContent = '';
+    
+});
 
 /* buttons.forEach(button => addEventListener("click", () => console.log(operate(numOne, operator, numTwo)))) */
 
