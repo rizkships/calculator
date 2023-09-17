@@ -87,6 +87,10 @@ equals.addEventListener('click', function(){
 
 })
 
+decimal.addEventListener('click', () => {
+    addDecimal()
+})
+
 function handleNumber(num) {
     if (currentValue.length <= 10) {
 currentValue += num;
@@ -130,4 +134,10 @@ function roundNumber(num) {
     return Math.round(num * 1000) / 1000;
 }
 
+
+function addDecimal(){
+    if (!currentValue.includes(".")){
+        currentValue += "."
+    }
+}
 
