@@ -34,35 +34,65 @@ function operate (numOne, operator, numTwo) {
 }
 // BUTTON FUNCTIONS \\
 
-
-const outputDisplay = document.querySelector('.output')
-const allButtons = document.querySelector(".all-buttons")
-const numButtons = document.querySelectorAll('.number')
-const operator = document.querySelector(".operator")
-const equals = document.querySelector("#equals")
 const clear = document.querySelector('#clear')
+const equals = document.querySelector("#equals")
+const decimal = document.querySelector(".decimal")
+const numbers = document.querySelectorAll('.number')
+const operators = document.querySelectorAll(".operator")
+const outputDisplay = document.querySelector('.output')
 
-let numOne
+const allButtons = document.querySelector(".all-buttons")
 
-let numTwo 
+let operator = "";
+let firstValue = "";
+let secondValue = "";
+
+
+
+let tempNum = "";
+let total;
 let displayValue 
 
 
+numbers.forEach(number => {number.addEventListener("click", function (e) {
+    handleNumber(e.target.textContent)
+    outputDisplay.textContent = tempNum
+    
+})
+})
+
+operators.forEach(op => {op.addEventListener('click', function(e) {
+    handleOperator(e.target.textContent)
+    outputDisplay.textContent = firstValue + " " + operator;
+    outputDisplay.textContent = secondValue;
+
+})})
+function handleNumber(num) {
+    if (tempNum.length <= 10)
+tempNum += num
+}
+
+function handleOperator(op){
+    operator = op;
+    firstValue = secondValue;
+    secondValue = "";
+
+}
 
 
 
 
 
+// Clear Button function 
 
-
-// Clear Button function
+/*
 clear.addEventListener('click', () => {
     outputDisplay.textContent = '';
     
 });
 
 /* buttons.forEach(button => addEventListener("click", () => console.log(operate(numOne, operator, numTwo)))) */
-
+/*
 function display (displayValue) {
     outputDisplay.textContent = displayValue
 }
@@ -75,12 +105,14 @@ buttons.forEach(button => {button.addEventListener("click", function (e) {
 })
 */
 
+/*
 
-
-numButtons.forEach(button => {button.addEventListener("click", function (e) {
+numbers.forEach(number => {number.addEventListener("click", function (e) {
     displayValue = e.target.textContent
     outputDisplay.textContent = displayValue
     
     
 })
 })
+
+*/

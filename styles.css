@@ -13,7 +13,7 @@ body {
     border-radius: 10px;
 }
 
-.buttons {
+.all-buttons {
     width: 232px;
     display: flex;
     flex-wrap: wrap;
@@ -29,14 +29,7 @@ button {
     margin: 4px;
 }
 
-.output {
-    width: 224px;
-    background-color: rgb(176, 205, 176);
-    font-size: 40px;
-    text-align: end;
-    padding: 4px;
 
-}
 
 button:hover {
     background-color:rgb(111, 110, 110) ;
@@ -63,4 +56,27 @@ button:active {
 
 #clear:hover {
     background-color: rgb(252, 201, 17)
+}
+
+
+.output {
+    width: 224px;
+    background-color: rgb(176, 205, 176);
+    font-size: 40px;
+    text-align: end;
+    padding: 4px;
+    height: 55px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+.previous {
+    font-size: 20px;
+}
+
+.current {
+    font-size: 30px;
 }
