@@ -1,8 +1,3 @@
-const outputDisplay = document.querySelector('.output')
-const buttons = document.querySelectorAll('button')
-
-const clear = document.querySelector('#clear')
-
 function add (a, b) {
     return a + b
 }
@@ -18,8 +13,6 @@ function multiply(a, b) {
 function divide (a, b) { 
     return a / b 
 }
-
-
 
 function operate (numOne, operator, numTwo) {
     if (operator === "+") {
@@ -39,6 +32,28 @@ function operate (numOne, operator, numTwo) {
 
     }
 }
+// BUTTON FUNCTIONS \\
+
+
+const outputDisplay = document.querySelector('.output')
+const allButtons = document.querySelector(".all-buttons")
+const numButtons = document.querySelectorAll('.number')
+const operator = document.querySelector(".operator")
+const equals = document.querySelector("#equals")
+const clear = document.querySelector('#clear')
+
+let numOne
+
+let numTwo 
+let displayValue 
+
+
+
+
+
+
+
+
 
 // Clear Button function
 clear.addEventListener('click', () => {
@@ -60,12 +75,9 @@ buttons.forEach(button => {button.addEventListener("click", function (e) {
 })
 */
 
-let numOne
-let operator 
-let numTwo 
-let displayValue 
 
-buttons.forEach(button => {button.addEventListener("click", function (e) {
+
+numButtons.forEach(button => {button.addEventListener("click", function (e) {
     displayValue = e.target.textContent
     outputDisplay.textContent = displayValue
     
