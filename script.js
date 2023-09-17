@@ -1,3 +1,4 @@
+/*
 function add (a, b) {
     return a + b
 }
@@ -31,88 +32,86 @@ function operate (numOne, operator, numTwo) {
         return divide(numOne, numTwo)
 
     }
-}
+} 
+*/
 // BUTTON FUNCTIONS \\
 
-const clear = document.querySelector('#clear')
-const equals = document.querySelector("#equals")
-const decimal = document.querySelector(".decimal")
-const numbers = document.querySelectorAll('.number')
-const operators = document.querySelectorAll(".operator")
-const outputDisplay = document.querySelector('.output')
+let clear = document.querySelector('#clear')
+let equals = document.querySelector("#equals")
+let decimal = document.querySelector(".decimal")
+let numbers = document.querySelectorAll('.number')
+let operators = document.querySelectorAll(".operator")
+let previousDisplay = document.querySelector('.previous')
+let currentDisplay = document.querySelector('.current')
 
-const allButtons = document.querySelector(".all-buttons")
+
+
 
 let operator = "";
-let firstValue = "";
-let secondValue = "";
+let previousValue = "";
+let currentValue = "";
 
 
-
-let tempNum = "";
-let total;
-let displayValue 
-
-
-numbers.forEach(number => {number.addEventListener("click", function (e) {
+numbers.forEach((number) => number.addEventListener("click", function (e) {
     handleNumber(e.target.textContent)
-    outputDisplay.textContent = tempNum
+    currentDisplay.textContent = currentValue;
     
 })
+)
+
+operators.forEach((op) => op.addEventListener('click', function(e) {
+    handleOperator(e.target.textContent)
+    previousDisplay.textContent = previousValue + " " + operator;
+    currentDisplay.textContent = currentValue;
+
+}))
+
+clear.addEventListener('click', () => {
+    previousValue = "";
+    currentValue = "";
+    operator = "";
+    previousDisplay.textContent = ""
+    currentDisplay.textContent = ""
 })
 
-operators.forEach(op => {op.addEventListener('click', function(e) {
-    handleOperator(e.target.textContent)
-    outputDisplay.textContent = firstValue + " " + operator;
-    outputDisplay.textContent = secondValue;
+equals.addEventListener('click', function(){
+    calculate()
+})
 
-})})
 function handleNumber(num) {
-    if (tempNum.length <= 10)
-tempNum += num
+    if (currentValue.length <= 10) {
+currentValue += num;
+}
 }
 
 function handleOperator(op){
     operator = op;
-    firstValue = secondValue;
-    secondValue = "";
+    previousValue = currentValue;
+    currentValue = "";
 
 }
 
+function calculate(){
+    previousValue = Number(previousValue);
+    currentValue = Number(currentValue);
 
+    if (operator === "+") {
+        previousValue += currentValue
 
+    }
+    else if (operator === "-") {
+        previousValue -= currentValue
 
+    }
+    else if (operator === "*") {
+        previousValue *= currentValue
 
-// Clear Button function 
+    }
+    else if (operator === "/") {
+        previousValue /= currentValue
 
-/*
-clear.addEventListener('click', () => {
-    outputDisplay.textContent = '';
-    
-});
-
-/* buttons.forEach(button => addEventListener("click", () => console.log(operate(numOne, operator, numTwo)))) */
-/*
-function display (displayValue) {
-    outputDisplay.textContent = displayValue
+    }
+    console.log(previousValue)
 }
-/* This function targets buttons pressed on calculator 
 
-buttons.forEach(button => {button.addEventListener("click", function (e) {
-    console.log(e.target.textContent)
-    
-})
-})
-*/
 
-/*
-
-numbers.forEach(number => {number.addEventListener("click", function (e) {
-    displayValue = e.target.textContent
-    outputDisplay.textContent = displayValue
-    
-    
-})
-})
-
-*/
