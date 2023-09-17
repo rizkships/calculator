@@ -75,7 +75,16 @@ clear.addEventListener('click', () => {
 })
 
 equals.addEventListener('click', function(){
+    if (currentValue != '' && previousValue != ''){
     calculate()
+    previousDisplay.textContent = ""
+    if (previousValue.length <= 10) {
+        currentDisplay.textContent = previousValue
+    } else {
+        currentDisplay.textContent = previousValue.slice(0, 10) + "...";
+    }
+}
+
 })
 
 function handleNumber(num) {
@@ -111,7 +120,14 @@ function calculate(){
         previousValue /= currentValue
 
     }
-    console.log(previousValue)
+    previousValue = roundNumber(previousValue);
+
+    previousValue = previousValue.toString()
+    currentValue = previousValue.toString()
+}
+
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000;
 }
 
 
