@@ -121,7 +121,8 @@ function calculate(){
 
     }
     else if (operator === "/") {
-        previousValue /= currentValue
+        if (currentValue != 0) {
+        previousValue /= currentValue} else alert("You'll break the universe!")
 
     }
     previousValue = roundNumber(previousValue);
